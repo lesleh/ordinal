@@ -19,7 +19,13 @@ var expected = {
 
 describe('English', function(){
   for(var key in expected) {
-    it('should return ' + expected[key] + ' for ' + key, function(){
+    it('should return ' + key + expected[key] + ' for ' + key, function(){
+      en(key).should.equal(key + expected[key]);
+    });
+  }
+  
+  for(var key in expected) {
+    it('suffix should return ' + expected[key] + ' for ' + key, function(){
       en.suffix(key).should.equal(expected[key]);
     });
   }
